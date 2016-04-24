@@ -1,6 +1,4 @@
-import MasterMiner
-
-
+from business import MasterMiner
 # get_query : принимает void -> возвращает query
 # query (запрос) — реализован как запись
 # её поля идентичны аргументам функции /questions из API сайта StackOverFlow

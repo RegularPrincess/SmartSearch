@@ -1,11 +1,12 @@
-import Model
-import View
+from MVC import Model
+from MVC import View
 
 
 def mvc_run():
     """Берём в руки топор и организуем основной цикл программы."""
     AXE_IN_MY_HANDS = True
-
+    # программа работает, пока пользователь продолжает посылать запросы
+    # если запрос пустой, то это конец
     while AXE_IN_MY_HANDS:
         _mvc_step()
     return None

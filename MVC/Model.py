@@ -1,9 +1,11 @@
 # зачем плодить классы, если у python такая уютная система процедур и модулей?
-import WebMinersBarracks
+from business import WebMinersBarracks
 
 
 # handle_query : schedule, craft_scheme -> data_chest
 def handle_query(schedule):
+    if schedule is None:
+        return None
     # На основе интересующих пользователя свойств (дата, рейтинг и т.д.) из schedule,
     # получаем "сырой" json с вопросами со StackOverFlow.
     raw_data = WebMinersBarracks.dig(schedule)
