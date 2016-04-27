@@ -1,14 +1,11 @@
-from business import MasterMiner
-# get_query : принимает void -> возвращает query
-# query (запрос) — реализован как запись
-# её поля идентичны аргументам функции /questions из API сайта StackOverFlow
-# смотри (https://api.stackexchange.com/docs/questions)
-def get_query():
-    return MasterMiner.draw_schedule()
+class View:
+    def __init__(self, view_impl):
+        self.view_impl = view_impl
 
+    def get_query(self):
+        return self.view_impl.draw_schedule()
 
-# обновить View на основе информации из data_chest
-def update(data_chest):
-    MasterMiner.show_goods(data_chest)
-    return None
-
+    # обновить View на основе информации из data_chest
+    def update(self, data_chest):
+        self.view_impl.show_goods(data_chest)
+        return None
