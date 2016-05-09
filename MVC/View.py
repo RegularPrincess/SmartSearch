@@ -3,9 +3,9 @@ class View:
         self.view_impl = view_impl
 
     def get_query(self):
-        return self.view_impl.draw_schedule()
+        return self.view_impl.get_query()
 
-    # обновить View на основе информации из data_chest
-    def update(self, data_chest):
-        self.view_impl.show_goods(data_chest)
+    # обновить View на основе информации из data
+    def update(self, data):
+        self.view_impl.update(data)
         return None

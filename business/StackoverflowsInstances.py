@@ -1,5 +1,4 @@
-import abc
-import StackoverflowAPI
+from business import StackoverflowAPI
 
 
 class Owner:
@@ -16,13 +15,7 @@ class Comment:
         self.creation_date = json_info['creation_date']
 
 
-class Post(metaclass=abc.ABCMeta):
-    @abc.abstractclassmethod
-    def get_comments(self):
-        pass
-
-
-class Answer(Post):
+class Answer:
     def __init__(self, json_info):
         self.id = json_info['answer_id']
         self.owner = Owner(json_info['owner'])
@@ -38,7 +31,7 @@ class Answer(Post):
         return self.__comments
 
 
-class Question(Post):
+class Question:
     def __init__(self, json_info):
         self.id = json_info['question_id']
         self.owner = Owner(json_info['owner'])
