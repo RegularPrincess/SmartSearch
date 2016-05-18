@@ -1,9 +1,13 @@
-from business import StackoverflowAPI
+from API import stackoverflowAPI
 
 
 class Owner:
+    id = None
+    nick = None
+
     def __init__(self, json_info):
-        self.id = json_info['user_id']
+        if 'user_id' in json_info:
+            self.id = json_info['user_id']
         self.nick = json_info['display_name']
 
 
@@ -26,7 +30,7 @@ class Answer:
 
     def get_comments(self):
         if self.__comments is None:
-            self.__comments = StackoverflowAPI.API.get_answer_comments(self.id)
+            self.__comments = stackoverflowAPI.get_answer_comments(self.id)
 
         return self.__comments
 
@@ -46,10 +50,10 @@ class Question:
 
     def get_comments(self):
         if self.__comments is None:
-            self.__comments = StackoverflowAPI.API.get_question_comments(self.id)
+            self.__comments = stackoverflowAPI.get_question_comments(self.id)
         return self.__comments
 
     def get_answers(self):
         if self.__answers is None:
-            self.__answers = StackoverflowAPI.API.get_answers(self.id)
+            self.__answers = stackoverflowAPI.get_answers(self.id)
         return self.__answers
